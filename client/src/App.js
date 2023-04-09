@@ -1,29 +1,45 @@
 import React, {useEffect, useState} from 'react'
-import Article from './article'
+import List from './list'
 import "./App.css";
 
 function App(){
-  const [backendData, setBackendData] = useState([{}])
-  
+  const [xArticlesData, setXArticlesData] = useState([{}])
+  const [authorOrTitleData, setAuthorOrTitleData] = useState([{}])
+  const [keywordData, setKeywordData] = useState([{}])
+
+
   useEffect(() => {
-    fetch("/api").then(
+    fetch("/fetchXArticles?x=5").then(
       response => response.json()
     ).then(
       data => {
-        setBackendData(data)
+        setXArticlesData(data)
       }
     )
+
+    fetch("/searchByAuthorOrTitle?author=someone&title=something").then(
+      response => response.json()
+    ).then(
+      data => {
+        setAuthorOrTitleData(data)
+      }
+    )
+
+    fetch("/searchByKeyword?keyword=findthis").then(
+      response => response.json()
+    ).then(
+      data => {
+        setKeywordData(data)
+      }
+    )
+
   }, [])
  
   return (
     <div>
-      {(typeof backendData.articles === 'undefined') ? (
-        <p>Loading...</p>
-      ) : (
-        backendData.articles.map((article, i) => (
-          <Article key={i} article={article}/>
-        ))
-      )}
+      <List data={xArticlesData} title="Fetch 5 Articles"/>
+      <List data={authorOrTitleData} title="Fetch Articles with Author/Title ..."/>
+      <List data={keywordData} title="Fetch Articles with Keyword ..."/>
     </div> 
   )
 }

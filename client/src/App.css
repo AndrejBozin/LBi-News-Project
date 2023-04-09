@@ -70,3 +70,12 @@ body {
   background-color: #4c00ff;
   color: #fff;
 }
+
+.list-object{
+  float:left;
+  margin-right:30px;
+}
+
+.list-title{
+  margin-bottom: 10px;
+}
