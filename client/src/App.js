@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react'
+import Article from './article'
+import "./App.css";
 
 function App(){
   const [backendData, setBackendData] = useState([{}])
@@ -15,11 +17,11 @@ function App(){
  
   return (
     <div>
-      {(typeof backendData.users === 'undefined') ? (
+      {(typeof backendData.articles === 'undefined') ? (
         <p>Loading...</p>
       ) : (
-        backendData.users.map((user, i) => (
-          <p key = {i}>{user}</p>
+        backendData.articles.map((article, i) => (
+          <Article key={i} article={article}/>
         ))
       )}
     </div> 
