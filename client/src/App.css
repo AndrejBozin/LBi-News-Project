@@ -24,34 +24,36 @@ body {
   border-radius: 8px;
   padding: 10px;
   justify-content: space-around;
+  margin-bottom: 30px;
 }
 
-.card .user_img img {
+.card .article_img img {
   height: 170px;
   margin-right: 20px;
   width: 120px;
   border-radius: 15px;
+  object-fit: cover;
 }
 
-.user_info h1 {
+.article_info h1 {
   font-size: 20px;
   color: #1e212d;
   margin: 10px 0;
 }
 
-.user_info p {
+.article_info p {
   color: #a1a1a1;
   font-size: 14px;
 }
 
-.user_info .row {
+.article_info .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
 }
 
-.user_info .row h1 {
+.article_info .row h1 {
   font-size: 20px;
 }
 
