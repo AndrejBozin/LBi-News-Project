@@ -4,12 +4,12 @@ import "./App.css";
 
 function App(){
   const [xArticlesData, setXArticlesData] = useState([{}])
-  const [authorOrTitleData, setAuthorOrTitleData] = useState([{}])
+  const [titleData, setTitleData] = useState([{}])
   const [keywordData, setKeywordData] = useState([{}])
 
 
   useEffect(() => {
-    fetch("/fetchXArticles?x=5").then(
+    fetch("/fetchXArticles?numArticles=3").then(
       response => response.json()
     ).then(
       data => {
@@ -17,15 +17,15 @@ function App(){
       }
     )
 
-    fetch("/searchByAuthorOrTitle?author=someone&title=something").then(
+    fetch("/searchByTitle?title=Layoff").then(
       response => response.json()
     ).then(
       data => {
-        setAuthorOrTitleData(data)
+        setTitleData(data)
       }
     )
 
-    fetch("/searchByKeyword?keyword=findthis").then(
+    fetch("/searchByKeyword?keyword=Apple").then(
       response => response.json()
     ).then(
       data => {
@@ -37,9 +37,9 @@ function App(){
  
   return (
     <div>
-      <List data={xArticlesData} title="Fetch 5 Articles"/>
-      <List data={authorOrTitleData} title="Fetch Articles with Author/Title ..."/>
-      <List data={keywordData} title="Fetch Articles with Keyword ..."/>
+      <List data={xArticlesData} title="Get 3 Articles"/>
+      <List data={titleData} title="Get Articles w 'Layoff' in Title"/>
+      <List data={keywordData} title="Get Articles w Keyword 'Apple'"/>
     </div> 
   )
 }

@@ -10,21 +10,17 @@ const Article = (props) => {
         </div>
 
         <div className="article_info">
-            <h1>{title}</h1>
-            <p>
-                {description}
-            </p>
-            <div className="row">
-            {/* <div className="follow">
-                <p>Followers</p>
-                <h1>963</h1>
+            <div className="title">
+                <h1>{title}</h1>
             </div>
-            <div className="follower">
-                <p>Following</p>
-                <h1>224</h1>
-            </div> */}
+            <div className="desc">
+                <p>
+                    {description}
+                </p>
+            </div>
+            <div className="row">
             <div className="btn">
-                <a href={url}>Link</a>
+                <a rel="noreferrer" target='_blank' href={url}>Link</a>
             </div>
             </div>
         </div>

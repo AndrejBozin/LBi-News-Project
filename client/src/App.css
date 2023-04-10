@@ -25,6 +25,7 @@ body {
   padding: 10px;
   justify-content: space-around;
   margin-bottom: 30px;
+  margin-right: 10px;
 }
 
 .card .article_img img {
@@ -38,7 +39,6 @@ body {
 .article_info h1 {
   font-size: 20px;
   color: #1e212d;
-  margin: 10px 0;
 }
 
 .article_info p {
@@ -78,4 +78,24 @@ body {
 
 .list-title{
   margin-bottom: 10px;
+}
+
+.list-items{
+  height: 90vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.title{
+  width: 240px;
+  height: 46px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desc{
+  width: 240px;
+  height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
