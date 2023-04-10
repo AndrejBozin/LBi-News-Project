@@ -39,11 +39,13 @@ There are 3 endpoints you can make requests to:
 
 *Description:* Making a request to this endpoint will fetch an array of articles containing however many articles are specified in the arguement. This value must be at least 1 and no greater than 10 (due to GNews free plan limitations).
 
+
 **/searchByTitle**
 
 *Parameter:* title [Required]
 
 *Description:* Making a request to this endpoint will fetch an array of articles which contain in their title the specified string argument.
+
 
 **/searchByKeyword**
 
