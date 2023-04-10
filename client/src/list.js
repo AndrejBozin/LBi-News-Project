@@ -1,5 +1,6 @@
 import Article from "./article";
 
+//List component for displaying array of articles
 const List = (props) => {
     const {data, title} = props;
     return (

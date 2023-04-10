@@ -66,6 +66,7 @@ body {
   transition: 0.5s ease-in-out;
   text-decoration: none;
 }
+
 .btn a:hover {
   background-color: #4c00ff;
   color: #fff;

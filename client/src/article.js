@@ -1,5 +1,6 @@
+//Article component for displaying individual article cards
 const Article = (props) => {
-    const {title, description, content, url, image, publishedAt, source} = props.article;
+    const {title, description, url, image} = props.article;
     return (
       <div className="card">
         <div className="article_img">

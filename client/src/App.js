@@ -3,11 +3,12 @@ import List from './list'
 import "./App.css";
 
 function App(){
+  //Set up state variables
   const [xArticlesData, setXArticlesData] = useState([{}])
   const [titleData, setTitleData] = useState([{}])
   const [keywordData, setKeywordData] = useState([{}])
 
-
+  //Make requests from client-side to server-side
   useEffect(() => {
     fetch("/fetchXArticles?numArticles=3").then(
       response => response.json()
@@ -35,6 +36,7 @@ function App(){
 
   }, [])
  
+  //Display results from backend on screen
   return (
     <div>
       <List data={xArticlesData} title="Get 3 Articles"/>
