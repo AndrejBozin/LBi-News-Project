@@ -1,5 +1,7 @@
 const fs = require('fs'); //used for file I/O
 
+const fetch = require("node-fetch"); //used to make requests
+
 //used to run JS on server-side and set up endpoints
 const express = require('express'); 
 const app = express();
