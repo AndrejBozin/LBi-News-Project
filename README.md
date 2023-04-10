@@ -2,7 +2,9 @@
 
 ## About
 **Author:** Andrej Bozin
+
 **External API:** [GNews API](https://gnews.io/)
+
 **Technologies Used:**
 - *Front-end:* ReactJS, NodeJS
 - *Back-end:* ExpressJS, NodeJS
@@ -19,7 +21,12 @@ In addition to a backend service, there is client-side code which makes a reques
 ## Instructions
 1. Clone this repo to your local setup.
 2. To start up the backend, `cd` into the `server` directory. Run `npm install`, then run `npm run dev`. This will start the server on `port 5000`.
-3. To run the frontend, `cd` into the `client` directory. Run `npm install`, then run `npm start`. This will boot up a React application on `port 3000`.
+
+If you want to make requests to the backend service directly simply make a request from your browser at `http://localhost:5000/` followed by the endpoint you'd like to test & the appropriate argument.
+
+**Example:** `http://localhost:5000/fetchXArticles?numArticles=6`
+
+3. To run the frontend, `cd` into the `client` directory. Run `npm install`, then run `npm start`. This will boot up a React application on `port 3000`. You should see the application open in your browser, similar to the image above.
 
 ## Documentation
 This documentation pertains to the server-side portion of this project. Before attempting to make these requests, please read & follow the instructions above.
