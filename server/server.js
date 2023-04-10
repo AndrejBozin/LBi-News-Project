@@ -3,10 +3,11 @@ const express = require('express');
 const app = express();
 
 //todo
-//error checking
 //comment everything
 //documentation & pictures
+//reset cache file 
 //see if it works on other laptop
+
 
 //const apikey = 'something';
 
@@ -26,6 +27,9 @@ fs.readFile('cache.txt', (err, inputD) => {
 app.get("/fetchXArticles", (req, res) => {
     const numArticles = req.query.numArticles
 
+    if(!numArticles || numArticles < 1 || numArticles > 10)
+        throw new Error('numArticles must be defined as a number between 1 & 10!')
+
     if(cache.fetchXArticles[numArticles]){
         res.json(cache.fetchXArticles[numArticles])
         return 
@@ -40,7 +44,7 @@ app.get("/fetchXArticles", (req, res) => {
         .then(function (data) {
             cache.fetchXArticles[numArticles] = data
             fs.writeFile('cache.txt', JSON.stringify(cache), (err) => {
-                if (err) throw err;
+                if (err) next(err);
                 else{
                    console.log("The cache is updated with the given data")
                 }
@@ -53,6 +57,9 @@ app.get("/fetchXArticles", (req, res) => {
 //Finds a news article with a specific title
 app.get("/searchByTitle", (req, res) => {
     const title = req.query.title
+
+    if(!title)
+        throw new Error('title must be defined!')
 
     if(cache.searchByTitle[title]){
         res.json(cache.searchByTitle[title])
@@ -68,7 +75,7 @@ app.get("/searchByTitle", (req, res) => {
         .then(function (data) {
             cache.searchByTitle[title] = data
             fs.writeFile('cache.txt', JSON.stringify(cache), (err) => {
-                if (err) throw err;
+                if (err) next(err);
                 else{
                    console.log("The cache is updated with the given data")
                 }
@@ -81,6 +88,9 @@ app.get("/searchByTitle", (req, res) => {
 //Searches for news articles by keyword
 app.get("/searchByKeyword", (req, res) => {
     const keyword = req.query.keyword
+
+    if(!keyword)
+        throw new Error('keyword must be defined!')
 
     if(cache.searchByKeyword[keyword]){
         res.json(cache.searchByKeyword[keyword])
@@ -96,7 +106,7 @@ app.get("/searchByKeyword", (req, res) => {
         .then(function (data) {
             cache.searchByKeyword[keyword] = data
             fs.writeFile('cache.txt', JSON.stringify(cache), (err) => {
-                if (err) throw err;
+                if (err) next(err);
                 else{
                    console.log("The cache is updated with the given data")
                 }
